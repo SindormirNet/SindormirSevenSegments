@@ -25,6 +25,11 @@ SindormirSevenSegments::SindormirSevenSegments(byte _sA, byte _sB, byte _sC, byt
     }
 }
 
+void SindormirSevenSegments::commonType(char type){
+    if ((type == 'A') or (type == 'a')) _sT = true;
+    else _sT = false;
+}
+
 void SindormirSevenSegments::print(byte num){
     //                      A, B, C, D, E, F, G, DP
     byte symbols[16][8]= { {1, 1, 1, 1, 1, 1, 0, 0}, //0
@@ -47,7 +52,7 @@ void SindormirSevenSegments::print(byte num){
 
     if (num < 16) {
         for (byte i=0; i<8; i++) {
-            digitalWrite(_segs[i], symbols[num][i]);
+            digitalWrite(_segs[i], symbols[num][i] ^ _sT);
         }
     }
 }
