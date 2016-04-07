@@ -30,9 +30,9 @@ void SindormirSevenSegments::commonType(char type){
     else _sT = false;
 }
 
-void SindormirSevenSegments::print(byte num){
+void SindormirSevenSegments::print(char num){
     //                      A, B, C, D, E, F, G, DP
-    byte symbols[16][8]= { {1, 1, 1, 1, 1, 1, 0, 0}, //0
+    byte symbols[17][8]= { {1, 1, 1, 1, 1, 1, 0, 0}, //0
                            {0, 1, 1, 0, 0, 0, 0, 0}, //1
                            {1, 1, 0, 1, 1, 0, 1, 0}, //2
                            {1, 1, 1, 1, 0, 0, 1, 0}, //3
@@ -47,13 +47,30 @@ void SindormirSevenSegments::print(byte num){
                            {1, 0, 0, 1, 1, 1, 0, 0}, //C
                            {0, 1, 1, 1, 1, 0, 1, 0}, //d
                            {1, 0, 0, 1, 1, 1, 1, 0}, //E
-                           {1, 0, 0, 0, 1, 1, 1, 0}  //F
+                           {1, 0, 0, 0, 1, 1, 1, 0}, //F
+                           {0, 0, 0, 0, 0, 0, 0, 0}  //BLANK
     };
+    char d;
 
-    if (num < 16) {
-        for (byte i=0; i<8; i++) {
-            digitalWrite(_segs[i], symbols[num][i] ^ _sT);
-        }
+    if ((num == 0) || (num == '0')) d = 0;
+    else if ((num == 1) || (num == '1')) d = 1;
+    else if ((num == 2) || (num == '2')) d = 2;
+    else if ((num == 3) || (num == '3')) d = 3;
+    else if ((num == 4) || (num == '4')) d = 4;
+    else if ((num == 5) || (num == '5')) d = 5;
+    else if ((num == 6) || (num == '6')) d = 6;
+    else if ((num == 7) || (num == '7')) d = 7;
+    else if ((num == 8) || (num == '8')) d = 8;
+    else if ((num == 9) || (num == '9')) d = 9;
+    else if ((num == 10) || (num == 'A') || (num == 'a')) d = 10;
+    else if ((num == 11) || (num == 'B') || (num == 'b')) d = 11;
+    else if ((num == 12) || (num == 'C') || (num == 'c')) d = 12;
+    else if ((num == 13) || (num == 'D') || (num == 'd')) d = 13;
+    else if ((num == 14) || (num == 'E') || (num == 'e')) d = 14;
+    else if ((num == 15) || (num == 'F') || (num == 'f')) d = 15;
+    else d = 16;
+
+    for (byte i=0; i<8; i++) {
+        digitalWrite(_segs[i], symbols[d][i] ^ _sT);
     }
 }
-
