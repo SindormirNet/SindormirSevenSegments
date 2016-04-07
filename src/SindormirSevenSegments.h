@@ -7,6 +7,7 @@ Released under the terms of the GPL v3 License
 #ifndef SindormirSevenSegments_h
 #define SindormirSevenSegments_h
 
+#define Sindormir7segs SindormirSevenSegments
 #define A 'a'
 #define Anodo 'a'
 #define C 'k'
