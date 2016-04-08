@@ -72,7 +72,7 @@ void SindormirSevenSegments::clearDot(void){
 }
 
 void SindormirSevenSegments::print(char num){
-    //                      A, B, C, D, E, F, G, DP
+    //                      A, B, C, D, E, F, G
     byte symbols[17][7]= { {1, 1, 1, 1, 1, 1, 0}, //0
                            {0, 1, 1, 0, 0, 0, 0}, //1
                            {1, 1, 0, 1, 1, 0, 1}, //2
