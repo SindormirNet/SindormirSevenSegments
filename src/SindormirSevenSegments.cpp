@@ -7,9 +7,17 @@ Released under the terms of the GPL v3 License
 #include "Arduino.h"
 #include "SindormirSevenSegments.h"
 
-SindormirSevenSegments::SindormirSevenSegments(byte _sA, byte _sB, byte _sC, byte _sD, byte _sE, byte _sF, byte _sG, byte _sDP){
+SindormirSevenSegments::SindormirSevenSegments(void){
+}
 
-    //Create array for segments and inizialize outputs (All HIGH)
+void SindormirSevenSegments::commonType(char type){
+    if ((type == 'A') or (type == 'a')) _sT = true;
+    else _sT = false;
+}
+
+void SindormirSevenSegments::attach(byte _sA, byte _sB, byte _sC, byte _sD, byte _sE, byte _sF, byte _sG, byte _sDP){
+
+    //Create array for segments and inizialize outputs (All LOW)
     _segs[0] = _sA;
     _segs[1] = _sB;
     _segs[2] = _sC;
@@ -21,13 +29,8 @@ SindormirSevenSegments::SindormirSevenSegments(byte _sA, byte _sB, byte _sC, byt
 
     for (byte i=0; i<8; i++){
         pinMode(_segs[i], OUTPUT);
-        digitalWrite(_segs[i], HIGH);
+        digitalWrite(_segs[i], LOW ^ _sT);
     }
-}
-
-void SindormirSevenSegments::commonType(char type){
-    if ((type == 'A') or (type == 'a')) _sT = true;
-    else _sT = false;
 }
 
 void SindormirSevenSegments::lampTest(void){
