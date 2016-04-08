@@ -30,6 +30,26 @@ void SindormirSevenSegments::commonType(char type){
     else _sT = false;
 }
 
+void SindormirSevenSegments::lampTest(void){
+    for (byte i=0; i<8; i++) {
+        digitalWrite(_segs[i], HIGH ^ _sT);
+    }
+}
+
+void SindormirSevenSegments::clear(void){
+    for (byte i=0; i<8; i++) {
+        digitalWrite(_segs[i], LOW ^ _sT);
+    }
+}
+
+void SindormirSevenSegments::setDot(void){
+    digitalWrite(_segs[7], HIGH ^ _sT);
+}
+
+void SindormirSevenSegments::clearDot(void){
+    digitalWrite(_segs[7], LOW ^ _sT);
+}
+
 void SindormirSevenSegments::print(char num){
     //                      A, B, C, D, E, F, G, DP
     byte symbols[17][8]= { {1, 1, 1, 1, 1, 1, 0, 0}, //0
