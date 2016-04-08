@@ -9,9 +9,12 @@ Released under the terms of the GPL v3 License
 
 #define Sindormir7segs SindormirSevenSegments
 #define A 'a'
-#define Anodo 'a'
+#define ANODO 'a'
+#define ANODE 'a'
 #define C 'k'
-#define Catodo 'k'
+#define K 'k'
+#define CATODO 'k'
+#define CATHODE 'k'
 
 #include "Arduino.h"
 
