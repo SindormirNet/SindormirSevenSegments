@@ -22,6 +22,7 @@ class SindormirSevenSegments {
     public:
         SindormirSevenSegments(void);
         void attach(byte _sA, byte _sB, byte _sC, byte _sD, byte _sE, byte _sF, byte _sG, byte _sDP);
+        void attach(byte _sA, byte _sDP);
         void commonType(char t);
         void lampTest(void);
         void clear(void);

@@ -33,6 +33,24 @@ void SindormirSevenSegments::attach(byte _sA, byte _sB, byte _sC, byte _sD, byte
     }
 }
 
+void SindormirSevenSegments::attach(byte _sA, byte _sDP){
+
+    if (_sDP = _sA + 7) {
+        //Create array for segments and inizialize outputs (All LOW)
+        for (byte i=_sA; i<_sDP+1; i++){
+            _segs[i-_sA] = i;
+        }
+
+        for (byte i=0; i<8; i++){
+            pinMode(_segs[i], OUTPUT);
+            digitalWrite(_segs[i], LOW ^ _sT);
+        }
+    }
+    else{
+
+    }
+}
+
 void SindormirSevenSegments::lampTest(void){
     for (byte i=0; i<8; i++) {
         digitalWrite(_segs[i], HIGH ^ _sT);
