@@ -1,3 +1,34 @@
-SindormirSevenSegments  KEYWORD1    SindormirSevenSegments
-print   KEYWORD2
+#######################################
+# Syntax Coloring Map
+#######################################
 
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+SindormirSevenSegments	KEYWORD1
+Sindormir7segs	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+print	KEYWORD2
+commonType	KEYWORD2
+lampTest	KEYWORD2
+clear	KEYWORD2
+setDot	KEYWORD2
+clearDot	KEYWORD2
+attach	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+A	LITERAL1
+ANODO	LITERAL1
+ANODE	LITERAL1
+C	LITERAL1
+K	LITERAL1
+CATODO	LITERAL1
+CATHODE	LITERAL1

@@ -1,9 +1,10 @@
 #include <SindormirSevenSegments.h>
 
-SindormirSevenSegments mi7S(2,3,4,5,6,7,8,9);
+Sindormir7segs mi7S;
 
 void setup() {
-  
+  mi7S.commonType(CATODO);
+  mi7S.attach(2,3,4,5,6,7,8,9);
 }
 
 void loop() {
