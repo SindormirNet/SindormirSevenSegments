@@ -1,5 +1,11 @@
-# SindormirSevenSegments
+# Sindormir SevenSegments
 Simple Seven Segments library for Arduino
+
+by
+
+![Sindormir.net](https://sindormir.net/sites/sindormir.net/files/logo-sindormir-transparente-ajustado.png)
+
+https://sindormir.net
 
 ## Declaración de objeto ##
 
