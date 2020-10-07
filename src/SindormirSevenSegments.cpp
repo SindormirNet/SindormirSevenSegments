@@ -15,7 +15,7 @@ void SindormirSevenSegments::commonType(char type){
     else _sT = false;
 }
 
-void SindormirSevenSegments::attach(byte _sA, byte _sB, byte _sC, byte _sD, byte _sE, byte _sF, byte _sG, byte _sDP){
+void SindormirSevenSegments::attach(uint8_t _sA, uint8_t _sB, uint8_t _sC, uint8_t _sD, uint8_t _sE, uint8_t _sF, uint8_t _sG, uint8_t _sDP){
 
     //Create array for segments and inizialize outputs (All LOW)
     _segs[0] = _sA;
@@ -27,38 +27,35 @@ void SindormirSevenSegments::attach(byte _sA, byte _sB, byte _sC, byte _sD, byte
     _segs[6] = _sG;
     _segs[7] = _sDP;
 
-    for (byte i=0; i<8; i++){
+    for (uint8_t i=0; i<8; i++){
         pinMode(_segs[i], OUTPUT);
         digitalWrite(_segs[i], LOW ^ _sT);
     }
 }
 
-void SindormirSevenSegments::attach(byte _sA, byte _sDP){
+void SindormirSevenSegments::attach(uint8_t _sA, uint8_t _sDP){
 
-    if (_sDP = _sA + 7) {
+    if (_sDP == _sA + 7) {
         //Create array for segments and inizialize outputs (All LOW)
-        for (byte i=_sA; i<_sDP+1; i++){
+        for (uint8_t i=_sA; i<_sDP+1; i++){
             _segs[i-_sA] = i;
         }
 
-        for (byte i=0; i<8; i++){
+        for (uint8_t i=0; i<8; i++){
             pinMode(_segs[i], OUTPUT);
             digitalWrite(_segs[i], LOW ^ _sT);
         }
     }
-    else{
-
-    }
 }
 
 void SindormirSevenSegments::lampTest(void){
-    for (byte i=0; i<8; i++) {
+    for (uint8_t i=0; i<8; i++) {
         digitalWrite(_segs[i], HIGH ^ _sT);
     }
 }
 
 void SindormirSevenSegments::clear(void){
-    for (byte i=0; i<8; i++) {
+    for (uint8_t i=0; i<8; i++) {
         digitalWrite(_segs[i], LOW ^ _sT);
     }
 }
@@ -73,25 +70,25 @@ void SindormirSevenSegments::clearDot(void){
 
 void SindormirSevenSegments::print(char num){
     //                      A, B, C, D, E, F, G
-    byte symbols[17][7]= { {1, 1, 1, 1, 1, 1, 0}, //0
-                           {0, 1, 1, 0, 0, 0, 0}, //1
-                           {1, 1, 0, 1, 1, 0, 1}, //2
-                           {1, 1, 1, 1, 0, 0, 1}, //3
-                           {0, 1, 1, 0, 0, 1, 1}, //4
-                           {1, 0, 1, 1, 0, 1, 1}, //5
-                           {1, 0, 1, 1, 1, 1, 1}, //6
-                           {1, 1, 1, 0, 0, 0, 0}, //7
-                           {1, 1, 1, 1, 1, 1, 1}, //8
-                           {1, 1, 1, 0, 0, 1, 1}, //9
-                           {1, 1, 1, 0, 1, 1, 1}, //A
-                           {0, 0, 1, 1, 1, 1, 1}, //b
-                           {1, 0, 0, 1, 1, 1, 0}, //C
-                           {0, 1, 1, 1, 1, 0, 1}, //d
-                           {1, 0, 0, 1, 1, 1, 1}, //E
-                           {1, 0, 0, 0, 1, 1, 1}, //F
-                           {0, 0, 0, 0, 0, 0, 0}  //BLANK
+    uint8_t symbols[17][7]= { {1, 1, 1, 1, 1, 1, 0}, //0
+                            {0, 1, 1, 0, 0, 0, 0}, //1
+                            {1, 1, 0, 1, 1, 0, 1}, //2
+                            {1, 1, 1, 1, 0, 0, 1}, //3
+                            {0, 1, 1, 0, 0, 1, 1}, //4
+                            {1, 0, 1, 1, 0, 1, 1}, //5
+                            {1, 0, 1, 1, 1, 1, 1}, //6
+                            {1, 1, 1, 0, 0, 0, 0}, //7
+                            {1, 1, 1, 1, 1, 1, 1}, //8
+                            {1, 1, 1, 0, 0, 1, 1}, //9
+                            {1, 1, 1, 0, 1, 1, 1}, //A
+                            {0, 0, 1, 1, 1, 1, 1}, //b
+                            {1, 0, 0, 1, 1, 1, 0}, //C
+                            {0, 1, 1, 1, 1, 0, 1}, //d
+                            {1, 0, 0, 1, 1, 1, 1}, //E
+                            {1, 0, 0, 0, 1, 1, 1}, //F
+                            {0, 0, 0, 0, 0, 0, 0}  //BLANK
     };
-    char d;
+    uint8_t d;
 
     if ((num == 0) || (num == '0')) d = 0;
     else if ((num == 1) || (num == '1')) d = 1;
@@ -111,7 +108,7 @@ void SindormirSevenSegments::print(char num){
     else if ((num == 15) || (num == 'F') || (num == 'f')) d = 15;
     else d = 16;
 
-    for (byte i=0; i<7; i++) {
+    for (uint8_t i=0; i<7; i++) {
         digitalWrite(_segs[i], symbols[d][i] ^ _sT);
     }
 }
