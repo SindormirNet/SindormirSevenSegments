@@ -119,6 +119,7 @@ my7S.print(numero);
 
 Los valores posibles de entrada son:
 -   Números del `0` al `15`.  `my7S.print(3);`.
+(Se debe tener en cuenta que los números del 10 al 15 corresponderán con las letras de la 'A' a la 'F')
 -   Caracteres del `'0'` a `'9'`. `my7S.print('3');`.
 -   Caracteres de la `'a'` hasta la `'f'`, sin sensibilidad a mayúsculas. `my7S.print('e');` o `my7S.print('E');`.
 -   Número `-1` como forma alternativa de limpiar el _display_ (a excepción del punto decimal **segmento DP**). `my7S.print(-1);`
